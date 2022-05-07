@@ -1,3 +1,6 @@
+// g++ main.cpp -o main -Wall -Werror
+// ./main
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -12,37 +15,44 @@ using namespace std;
 class groceryList
 {
 public:
+    /* public groceryList class attributes */
+    vector<string> GroceryItemVector;
+    int ItemNumber;
+
+    /* Default constructor */
+    groceryList()
+    {
+        ItemNumber = 999; // Default 999
+    }
+
+    /* Constructor with paramaters */
     groceryList(
         int itemNumber,
         string groceryItem)
     {
-        ItemNumber = itemNumber;
-        GroceryItem = groceryItem;
+        ItemNumber = 1;
+        GroceryItemVector.at(itemNumber) = "testing with params";
     }
+
+    /* Display contents of groceryList */
     void display()
     {
         cout << "     ItemNumber : " << ItemNumber << endl;
-        cout << "     GroceryItem : " << GroceryItem << endl;
+        cout << "     GroceryItem : " << GroceryItemVector.at(ItemNumber) << endl;
     }
-    string GroceryItem;
-    int ItemNumber;
 };
 
 int main(int argc, char *argv[])
 {
-    vector<groceryList> groceryListVector;
+    // string groceryItem;
+    // cout << "Groceries!" << endl; // "title"
+    // cout << "Please enter a grocery item: ";
+    // cin >> groceryItem;
+    // groceryList newList(1, groceryItem);
 
-    string groceryItem;
-    int number = 0;
-
-    cout << "Groceries!" << endl; // "title"
-
-    cout << "Please enter a grocery item: ";
-    cin >> groceryItem;
-    cout << "Item entered: " << groceryItem;
-    groceryList newList(number, groceryItem);
-
-    cout << "\nGrocery list test: " << newList.ItemNumber << " " << newList.GroceryItem << endl;
-
+    groceryList myGroceryList;
+    myGroceryList.GroceryItemVector.push_back("Bananas");
+    cout << "\nGrocery list test item: " << myGroceryList.GroceryItemVector.at(0) << " " << endl;
+    cout << "\nGrocery list size: " << myGroceryList.GroceryItemVector.size() << " " << endl;
     return 0;
 }
