@@ -17,12 +17,10 @@ class groceryList
 public:
     /* public groceryList class attributes */
     vector<string> GroceryItemVector;
-    int ItemNumber;
 
     /* Default constructor */
     groceryList()
     {
-        ItemNumber = 999; // Default 999
     }
 
     /* Constructor with paramaters */
@@ -30,15 +28,13 @@ public:
         int itemNumber,
         string groceryItem)
     {
-        ItemNumber = 1;
         GroceryItemVector.at(itemNumber) = "testing with params";
     }
 
     /* Display contents of groceryList */
     void display()
     {
-        cout << "     ItemNumber : " << ItemNumber << endl;
-        cout << "     GroceryItem : " << GroceryItemVector.at(ItemNumber) << endl;
+        cout << "     GroceryItem : " << GroceryItemVector.at(0) << endl;
     }
 };
 
